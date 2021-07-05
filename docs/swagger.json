@@ -1,22 +1,8 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "This is a sample server Petstore server.",
-        "title": "Swagger Example API",
-        "termsOfService": "http://swagger.io/terms/",
-        "contact": {
-            "name": "API Support",
-            "url": "http://www.swagger.io/support",
-            "email": "support@swagger.io"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        },
-        "version": "1.0"
+        "contact": {}
     },
-    "host": "petstore.swagger.io",
-    "basePath": "/v2",
     "paths": {
         "/welcome/{name}": {
             "get": {
@@ -27,7 +13,7 @@
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Summary를 적어 줍니다",
+                "summary": "Summary를 적어 줍니다.",
                 "parameters": [
                     {
                         "type": "string",
@@ -41,7 +27,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/main.welcomeModel"
+                            "$ref": "#/definitions/routesV1.welcomeModel"
                         }
                     }
                 }
@@ -49,7 +35,7 @@
         }
     },
     "definitions": {
-        "main.welcomeModel": {
+        "routesV1.welcomeModel": {
             "type": "object",
             "properties": {
                 "id": {

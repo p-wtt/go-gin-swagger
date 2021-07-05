@@ -18,16 +18,7 @@ var doc = `{
     "info": {
         "description": "{{.Description}}",
         "title": "{{.Title}}",
-        "termsOfService": "http://swagger.io/terms/",
-        "contact": {
-            "name": "API Support",
-            "url": "http://www.swagger.io/support",
-            "email": "support@swagger.io"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        },
+        "contact": {},
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
@@ -42,7 +33,7 @@ var doc = `{
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Summary를 적어 줍니다",
+                "summary": "Summary를 적어 줍니다.",
                 "parameters": [
                     {
                         "type": "string",
@@ -56,7 +47,7 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/main.welcomeModel"
+                            "$ref": "#/definitions/routesV1.welcomeModel"
                         }
                     }
                 }
@@ -64,7 +55,7 @@ var doc = `{
         }
     },
     "definitions": {
-        "main.welcomeModel": {
+        "routesV1.welcomeModel": {
             "type": "object",
             "properties": {
                 "id": {
@@ -92,12 +83,12 @@ type swaggerInfo struct {
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = swaggerInfo{
-	Version:     "1.0",
-	Host:        "petstore.swagger.io",
-	BasePath:    "/v2",
+	Version:     "",
+	Host:        "",
+	BasePath:    "",
 	Schemes:     []string{},
-	Title:       "Swagger Example API",
-	Description: "This is a sample server Petstore server.",
+	Title:       "",
+	Description: "",
 }
 
 type s struct{}

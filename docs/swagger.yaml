@@ -1,6 +1,5 @@
-basePath: /v2
 definitions:
-  main.welcomeModel:
+  routesV1.welcomeModel:
     properties:
       id:
         example: 1
@@ -10,19 +9,8 @@ definitions:
         example: account name
         type: string
     type: object
-host: petstore.swagger.io
 info:
-  contact:
-    email: support@swagger.io
-    name: API Support
-    url: http://www.swagger.io/support
-  description: This is a sample server Petstore server.
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-  termsOfService: http://swagger.io/terms/
-  title: Swagger Example API
-  version: "1.0"
+  contact: {}
 paths:
   /welcome/{name}:
     get:
@@ -41,6 +29,6 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/main.welcomeModel'
-      summary: Summary를 적어 줍니다
+            $ref: '#/definitions/routesV1.welcomeModel'
+      summary: Summary를 적어 줍니다.
 swagger: "2.0"
