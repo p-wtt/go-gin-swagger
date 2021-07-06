@@ -24,30 +24,46 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/welcome/{name}": {
+        "/auth/healthCheck": {
             "get": {
-                "description": "자세한 설명은 이곳에 적습니다.",
+                "description": "check server status",
                 "consumes": [
                     "application/json"
                 ],
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Summary를 적어 줍니다.",
+                "summary": "health check for server",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/user/{name}": {
+            "get": {
+                "description": "get user name, id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "get user name",
                 "parameters": [
                     {
                         "type": "string",
                         "description": "User name",
                         "name": "name",
-                        "in": "path",
-                        "required": true
+                        "in": "path"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/routesV1.welcomeModel"
+                            "$ref": "#/definitions/controller.UserInfo"
                         }
                     }
                 }
@@ -55,7 +71,7 @@ var doc = `{
         }
     },
     "definitions": {
-        "routesV1.welcomeModel": {
+        "controller.UserInfo": {
             "type": "object",
             "properties": {
                 "id": {

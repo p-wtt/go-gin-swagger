@@ -1,5 +1,5 @@
 definitions:
-  routesV1.welcomeModel:
+  controller.UserInfo:
     properties:
       id:
         example: 1
@@ -12,16 +12,26 @@ definitions:
 info:
   contact: {}
 paths:
-  /welcome/{name}:
+  /auth/healthCheck:
     get:
       consumes:
       - application/json
-      description: 자세한 설명은 이곳에 적습니다.
+      description: check server status
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: health check for server
+  /user/{name}:
+    get:
+      consumes:
+      - application/json
+      description: get user name, id
       parameters:
       - description: User name
         in: path
         name: name
-        required: true
         type: string
       produces:
       - application/json
@@ -29,6 +39,6 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/routesV1.welcomeModel'
-      summary: Summary를 적어 줍니다.
+            $ref: '#/definitions/controller.UserInfo'
+      summary: get user name
 swagger: "2.0"
