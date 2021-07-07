@@ -43,27 +43,28 @@ var doc = `{
         },
         "/user/{name}": {
             "get": {
-                "description": "get user name, id",
+                "description": "입력된 유저의 정보를 반환해주는 API",
                 "consumes": [
                     "application/json"
                 ],
                 "produces": [
                     "application/json"
                 ],
-                "summary": "get user name",
+                "summary": "유저 정보 가져오기",
                 "parameters": [
                     {
                         "type": "string",
                         "description": "User name",
                         "name": "name",
-                        "in": "path"
+                        "in": "path",
+                        "required": true
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/controller.UserInfo"
+                            "$ref": "#/definitions/user.UserInfo"
                         }
                     }
                 }
@@ -71,7 +72,7 @@ var doc = `{
         }
     },
     "definitions": {
-        "controller.UserInfo": {
+        "user.UserInfo": {
             "type": "object",
             "properties": {
                 "id": {

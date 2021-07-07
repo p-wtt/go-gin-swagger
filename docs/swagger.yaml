@@ -1,5 +1,5 @@
 definitions:
-  controller.UserInfo:
+  user.UserInfo:
     properties:
       id:
         example: 1
@@ -27,11 +27,12 @@ paths:
     get:
       consumes:
       - application/json
-      description: get user name, id
+      description: 입력된 유저의 정보를 반환해주는 API
       parameters:
       - description: User name
         in: path
         name: name
+        required: true
         type: string
       produces:
       - application/json
@@ -39,6 +40,6 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/controller.UserInfo'
-      summary: get user name
+            $ref: '#/definitions/user.UserInfo'
+      summary: 유저 정보 가져오기
 swagger: "2.0"
